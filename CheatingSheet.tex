@@ -148,10 +148,15 @@
 \SetSymbolFont{letters}{normal}{OML}{CheatMathItalic}{m}{it}
 \SetSymbolFont{symbols}{normal}{OMS}{CheatMathSymbol}{m}{n}
 \SetSymbolFont{largesymbols}{normal}{OMX}{CheatMathLargeSymbol}{m}{n}
-\DeclareMathSizes{5}{5}{4}{3}
 \newcommand{\CheatInlineMathSize}{5.7}
 \newcommand{\CheatInlineMathScriptSize}{4.7}
 \newcommand{\CheatInlineMathScriptScriptSize}{3.6}
+% Make ordinary inline math written as $...$ match the \m{...} sizing.
+\DeclareMathSizes
+  {5}
+  {\CheatInlineMathSize}
+  {\CheatInlineMathScriptSize}
+  {\CheatInlineMathScriptScriptSize}
 \DeclareMathSizes
   {\CheatInlineMathSize}
   {\CheatInlineMathSize}
