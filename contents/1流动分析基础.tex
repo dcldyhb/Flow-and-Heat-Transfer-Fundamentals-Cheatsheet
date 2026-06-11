@@ -1,0 +1,96 @@
+\section{第一章\quad 流动分析基础}
+
+%\subsection{流体力学概论}
+
+\pt{流体力学定义}：研究流体的平衡与运动规律的科学；
+\pt{对象}：流体，即液体和气体，如空气、水、油、血液等。
+\pt{内容}：流体运动规律及其和周围物体的相互作用。
+\pt{流体静力学}：研究平衡规律，包括绝对静止、相对静止、压力计算、压力分布。
+\pt{流体动力学}：研究流动规律，包括管内流、绕流、速度分布、压力分布、能量损失、流体与固体相互作用。
+\pt{研究方法}：理论、实验、数值方法。理论关注湍流、流动稳定性、涡运动、水动力学、多相流等；实验依靠相似理论、测量和数据处理；数值方法用计算机求解流体力学偏微分方程。
+
+%\subsection{流体的连续介质假设}
+
+\pt{流体定义}：在微小剪切力的持续作用下能够连续变形的物质；
+\pt{流体与固体}：固体能抵抗一定拉力、压力、剪切力；流体不能承受拉力，静止流体不能承受剪切力，无固定形状，易流动。
+\pt{液体}：不易压缩，有一定体积，有自由表面，无固定形状。
+\pt{气体}：易压缩，无固定形状，不能形成自由表面。
+\pt{连续介质假设}：以流体微团或流体质点为最小单位，不考虑分子间隙，把流体看作由无数连续分布的微团组成的连续介质；
+%\pt{必要性}：使物理量可看成空间坐标和时间的连续函数，便于解析研究，如 \m{p=p(x,y,z,t)}、\m{\rho=\rho(x,y,z,t)}、\m{T=T(x,y,z,t)}、\m{\sigma=\sigma(x,y,z,t)}。
+%\pt{合理性}：工程上关心宏观连续流动，不关心个别分子运动，连续介质结果与实际相差不大。
+\pt{适用范围}：物体特征尺寸 \m{L} 远大于流体质点特征尺寸 \m{l}，课件给出 \m{L/l\ge 100}。
+
+%\subsection{流体的主要物理性质}
+
+\pt{密度}：单位体积流体质量，均质流体 \m{\rho=\frac{m}{V}}%，单位 \m{\mathrm{kg}/\mathrm{m}^3}
+；非均质流体 \m{\rho=\lim_{\Delta V\to0}\frac{\Delta m}{\Delta V}=\frac{\mathrm{d}m}{\mathrm{d}V}}；
+\pt{相对密度}：某流体密度与 \m{4^\circ\mathrm{C}} 水密度之比，\m{d=\frac{\rho_f}{\rho_w}}。
+\pt{密度影响因素}：流体种类、温度、压强。气体可用理想气体状态关系确定：\m{\rho_2=\rho_1\frac{p_2T_1}{p_1T_2}}。
+\pt{压缩性}：\m{T} 一定时，压强升高使体积缩小的性质；\pt{体积压缩系数} \m{\beta=-\frac{1}{V}\frac{\mathrm{d}V}{\mathrm{d}p}}；%，单位 \m{\mathrm{m}^2/\mathrm{N}} 或 \m{1/\mathrm{Pa}}；\m{\beta} 越大越易压缩；
+\pt{膨胀性}：\m{p} 一定时，温度升高使体积增大的性质；\pt{体积膨胀系数} \m{\alpha_V=\frac{1}{V}\frac{\mathrm{d}V}{\mathrm{d}t}}；%，单位 \m{1/^\circ\mathrm{C}} 或 \m{1/\mathrm{K}}；
+\pt{不可压缩流体}：密度随温度、压强变化很小%，课件写作 \m{\frac{\mathrm{d}\rho}{\mathrm{d}t}=0}；
+%不可压均质流体 \m{\rho=\mathrm{const}}。
+\pt{可压缩流体}：密度变化不可忽略，%，\m{\rho\ne\mathrm{const}}。
+严格说完全不可压缩流体不存在；通常液体视为不可压缩，气体视为可压缩。
+
+\pt{黏性}：流体微团间相对滑移时产生切向阻力的性质；表现为内部微团间黏性力和流体黏附固体表面；
+\pt{牛顿内摩擦定律}：\m{F=\mu A \frac{\mathrm{d}u}{\mathrm{d}y}}，\m{\tau=\frac{F}{A} = \mu \frac{\mathrm{d}u}{\mathrm{d}y}}；\m{\mu} 为动力黏度。%，单位 \m{\mathrm{Pa}\cdot\mathrm{s}}；
+\pt{运动黏度}：\m{\nu=\frac{\mu}{\rho}}。%，单位 \m{\mathrm{m}^2/\mathrm{s}}。
+%若 \m{\mu=0} 或 \m{\diff u/\diff y=0}，则内摩擦力为零。静止流体有黏性，但内部无黏性切应力。
+液体黏度通常大于气体；常压下压强影响小，高压下黏性随压强升高而增大；液体黏性随温度升高而减小，气体黏性随温度升高而增大。
+\pt{黏性流体}：\m{\mu\ne0}；\pt{理想流体}：\m{\mu=0}。%静止、匀速直线流动或黏性不主导时，可先按理想流体处理；
+\pt{牛顿流体}：任一点剪应力遵循牛顿内摩擦定律者；否则为非牛顿流体，\m{\tau=\tau_0+\mu(\frac{\mathrm{d}u}{\mathrm{d}y})^n}；
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.75}
+    \resizebox{\linewidth}{!}{%
+        \begin{tabular}{ccc|c|c|c}
+            \hline
+            \multicolumn{3}{c|}{\textbf{流体类别}}
+             & \textbf{定义}
+             & $\boldsymbol{\tau=\tau_0+\mu\left(\frac{\mathrm{d}u}{\mathrm{d}y}\right)^n}$
+             & \textbf{实例}                                                                  \\
+            \hline
+            \multicolumn{3}{c|}{\textbf{理想流体}}
+             & \textbf{无粘性及完全不可压缩的流体的一种假想流体}
+             & $\mu=0,\ \tau_0=0$
+             &                                                                              \\
+            \hline
+            \multirow{4}{*}{\textbf{实际流体}}
+             &
+             & \textbf{牛顿流体}
+             & \multirow{4}{*}{\shortstack{\textbf{有粘性、}                                    \\\textbf{可压缩的}\\\textbf{流体}\\$\mu\ne0$}}
+             & $\tau_0=0,\ \mu\ne0,\ n=1$
+             & \textbf{水、空气、汽油、煤油、甲苯、乙醇等}                                                   \\
+            \cline{3-3}\cline{5-6}
+             & \multirow{3}{*}{\shortstack{\textbf{非}                                       \\\textbf{牛顿}\\\textbf{流体}}}
+             & \textbf{宾汉型塑性流体}
+             &
+             & $\tau_0\ne0,\ \mu=\mathrm{Const},\ n=1$
+             & \textbf{牙膏、泥浆、血浆等}                                                           \\
+            \cline{3-3}\cline{5-6}
+             &
+             & \textbf{假塑性流体}
+             &
+             & $\tau_0=0,\ \mu\ne0,\ n<1$
+             & \textbf{橡胶、油漆、尼龙等}                                                           \\
+            \cline{3-3}\cline{5-6}
+             &
+             & \textbf{膨胀性流体}
+             &
+             & $\tau_0=0,\ \mu\ne0,\ n>1$
+             & \textbf{生面团、浓淀粉糊}                                                            \\
+            \hline
+        \end{tabular}%
+    }
+\end{center}
+
+%\subsection{作用在流体上的力}
+\pt{表面力}：作用在某部分流体体积表面上的力，即相邻流体或固体经接触面作用在其上的力；大小与作用面积成正比；
+\pt{法向应力}：法向力 \m{\Delta P} 与流体表面垂直，\m{p=\frac{\mathrm{d}P}{\mathrm{d}A}}。
+\pt{切向应力}：切向力 \m{\Delta T} 与流体表面相切，\m{\tau=\frac{\mathrm{d}T}{\mathrm{d}A}}。
+\pt{质量力}：作用在某体积内所有流体质点上，并与该体积流体质量成正比的力，又称体积力；非接触力；
+\pt{单位质量力}：\m{\mathbf f=\mathbf F/m=f_x\mathbf i+f_y\mathbf j+f_z\mathbf k}。%例：重力、惯性力、磁力。
+\pt{表面张力}：液体自由表面层因分子引力作用而产生的使表面层收缩的力，是界面处分子不平衡吸引力的宏观表现。
+\pt{表面张力特点}：产生在液-气、液-固或两种液体分界面上，方向与自由界面相切；多数工程中可忽略，但水滴/气泡形成、雾化、汽液两相传热传质中不可忽略。
+\pt{毛细现象}：液体在细管中上升或下降。内聚力为分子间吸引力，附着力为不同物质接触部分吸引力；内聚力小于附着力时液体沿固体上升，反之下降。

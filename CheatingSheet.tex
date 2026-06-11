@@ -6,7 +6,7 @@
 \usepackage{iftex}
 \ifXeTeX
 \else
-  \errmessage{CheatingPaper.tex must be compiled with XeLaTeX}
+  \errmessage{CheatingSheet.tex must be compiled with XeLaTeX}
 \fi
 
 \usepackage[
@@ -20,6 +20,7 @@
 \usepackage[no-math]{fontspec}
 \usepackage{xeCJK}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -29,6 +30,15 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\pdfstringdefDisableCommands{%
+  \def\quad{ }%
+}
+
+\usepackage{multirow}
+\usepackage{xcolor}
 
 % Page and column specification.
 \newlength{\CheatColumnWidth}
@@ -56,7 +66,7 @@
 \defaultfontfeatures{Ligatures=TeX}
 \newcommand{\CheatFontPath}{fonts/}
 \IfFileExists{fonts/SFCompactText-Regular.ttf}{}
-  {\renewcommand{\CheatFontPath}{CheatingSeetTemplate/fonts/}}
+  {\renewcommand{\CheatFontPath}{../CheatingSheetTemplate/fonts/}}
 \setmainfont{SFCompactText-Regular.ttf}[
   Path=\CheatFontPath,
   BoldFont=SFCompactText-Bold.ttf,
@@ -110,7 +120,7 @@
 }
 
 % Typography specification.
-\definecolor{CheatTitleBlue}{HTML}{004D80}
+\definecolor{CheatTitleRed}{HTML}{a61f38}
 \definecolor{CheatAccentBlue}{HTML}{0076BA}
 \definecolor{CheatDividerGray}{HTML}{808080}
 \makeatletter
@@ -156,10 +166,10 @@
 \thickmuskip=5mu plus 5mu
 
 \titleformat{\section}
-  {\color{CheatTitleBlue}\fontsize{7pt}{7.5pt}\selectfont}
+  {\color{CheatTitleRed}\fontsize{7pt}{7.5pt}\selectfont}
   {}{0pt}{}
 \titleformat{\subsection}
-  {\color{CheatTitleBlue}\fontsize{6pt}{6.5pt}\selectfont\CheatLatinSemiBold\CheatCJKSemiBold}
+  {\color{CheatTitleRed}\fontsize{6pt}{6.5pt}\selectfont\CheatLatinSemiBold\CheatCJKSemiBold}
   {}{0pt}{}
 \titlespacing*{\section}{0pt}{1.2pt}{0.6pt}
 \titlespacing*{\subsection}{0pt}{0.9pt}{0.4pt}
@@ -207,28 +217,12 @@
   \vspace{1pt}%
 }
 
+\newcommand{\tdo}[1]{{\color{CheatTitleRed}\CheatLatinSemiBlack\CheatCJKSemiBlack #1}}
+
 \begin{document}
 \begin{cheatsheet}
 
-\section{Section Title / 一级标题}
-\subsection{Subsection Title / 二级标题}
-正文使用 5 pt 字号、6 pt 行间距；英文字体为 SF Compact Text，中文字体为苹方-简。%
-将这一段替换为你的 Cheating Paper 内容。行内公式用 \verb|\m{...}| 或 \verb|\tightmath{...}|；
-
-还可以使用像这样的单行公式：
-$$\mathrm{Re} = \frac{\text{惯性力}}{\text{黏性力}} = \frac{\rho Vl}{\mu} = \frac{Vl}{\nu}$$
-
-多字母语义标识使用 \verb|\mathrm{...}| 或 \verb|\operatorname{...}|，如 \m{P+\mathrm{SSR}}、\m{P_t^{\mathrm{ex}}}、\m{\operatorname{Cov}(x,y)}；
-真正的变量乘积保持数学写法，如 \m{xy} 或 \m{X'P_ZX}。
-
-\divider
-
-\begin{itemize}
-  \item \pointtitle{要点标题保持正文大小并使用 SemiBlack}，颜色使用 \#0076BA。
-  \item 公式示例：\tightmath{a^2+b^2=c^2}
-\end{itemize}
-
-
+  \input{contents/1流动分析基础.tex}
 
 \end{cheatsheet}
 \end{document}
