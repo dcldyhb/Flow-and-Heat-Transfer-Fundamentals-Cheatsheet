@@ -1,0 +1,356 @@
+\section{第六章 \quad 导热的基础与理论计算}
+
+\pt{导热机理}气体：主要来自分子热运动，$t$ 升高时 $\lambda$ 增大。导电固体：主要来自自由电子运动。非导电固体：主要来自晶格振动，量子化后称为声子。液体：来自分子热运动及晶格振动。
+
+傅里叶发现单位时间内通过给定截面的热量，正比于垂直该截面方向上的温度变化率和截面面积，方向与温度梯度相反。
+
+数学描述为 $\vec{q}=\frac{\vec{\Phi}}{A}-\lambda \operatorname{grad}(t)=-\lambda \frac{\partial t}{\partial n}\vec{n}$ 实验定律，常规尺度问题普遍适用：变物性，内热源，非稳态，固、液、气。负号含义：热量传递方向指向温度降低方向，与温度升高方向相反。热流密度矢量与等温线或等温面垂直，且方向与温度梯度相反；其走向可用热流线表示。
+
+\pt{导热系数}$\lambda =\frac{\vert \vec{q} \vert}{\vert \operatorname{grad}t\vert}$ 物理意义：数值上等于单位温度梯度作用下物体内产生的热流密度的模，是标量，单位为 $\mathrm{W/(m\cdot K)}$。表征物体导热本领大小。与物质种类及热力状态有关，如温度、气体压力等；与宏观物体几何形状无关。导热系数数量级：气体最低，建筑与绝热材料较低，液体居中，非金属固体更高，金属和非金属晶体可很高。常用大小顺序：$\lambda_{\mathrm{金属}}>\lambda_{\mathrm{非金属}}$，$\lambda_{\mathrm{固相}}>\lambda_{\mathrm{液相}}>\lambda_{\mathrm{气相}}$。常温约 $20^\circ\mathrm{C}$ 示例：纯铜 $\lambda=399,\mathrm{W/(m\cdot K)}$，纯钛 $\lambda=36.7,\mathrm{W/(m\cdot K)}$，水 $\lambda=0.599,\mathrm{W/(m\cdot K)}$，空气 $\lambda=0.0259,\mathrm{W/(m\cdot K)}$。温度范围不宽时，工程材料导热系数可近似写成线性函数：$\lambda=\lambda_0(1+bt)$。本课程只讨论各向同性材料，认为材料的 $\lambda$ 及其随温度变化关系已知。
+
+\divider
+
+%\subsection{导热问题的数学描述微分方程及其定解条件}
+
+任意三维的非稳态导热体，且物体内有内热源，假设为各向同性连续介质，导热系数、比热容和密度均已知，内热源均匀分布，强度为 $\dot{\Phi}$，单位 $\mathrm{W/m^3}$，且导热体与外界没有功的交换。
+
+\pt{单位时间导入的静热量}为 $\Phi_c = \left[\frac{\partial }{\partial x}\left(\lambda \frac{\partial t}{\partial x}\right)+\frac{\partial }{\partial y}\left(\lambda \frac{\partial t}{\partial y}\right)+\frac{\partial }{\partial z}\left(\lambda \frac{\partial t}{\partial z}\right)\right]\,\mathrm{d}x\mathrm{d}y\mathrm{d}z$\\
+\pt{单位时间内微元体内热源生成的热量} $\Phi_V = \dot{\Phi}\, \mathrm{d}x\mathrm{d}y\mathrm{d}z$\\
+\pt{单位时间内微元体热力学能增量} $\Delta U =\rho c \frac{\partial t}{\partial \tau}\cdot \mathrm{d}x\mathrm{d}y\mathrm{d}z$\\
+由能量守恒，得到导热微分方程的基本形式
+
+$\rho c\frac{\partial t}{\partial\tau}=\frac{\partial}{\partial x}(\lambda\frac{\partial t}{\partial x})+\frac{\partial}{\partial y}(\lambda\frac{\partial t}{\partial y})+\frac{\partial}{\partial z}(\lambda\frac{\partial t}{\partial z})+\dot{\Phi}$
+
+$\rho c\partial t/\partial\tau$ 为非稳态项；三个空间导热项为导热项或扩散项；$\dot{\Phi}$ 为内热源项（按课件上排版不下，哎）
+
+$\lambda =\mathrm{const}$ 时 $\frac{\partial t}{\partial\tau}=\frac{\lambda}{\rho c}\left(\frac{\partial^2t}{\partial x^2}+\frac{\partial^2t}{\partial y^2}+\frac{\partial^2t}{\partial z^2}\right)+\frac{\dot{\Phi}}{\rho c}$，令 $a=\frac{\lambda}{\rho c}$ 单位 $\mathrm{m^2/s}$，是物性参数，则 $\frac{\partial t}{\partial\tau}=a\left(\frac{\partial^2t}{\partial x^2}+\frac{\partial^2t}{\partial y^2}+\frac{\partial^2t}{\partial z^2}\right)+\frac{\dot{\boldsymbol{\Phi}}}{\rho c}$
+
+$\lambda=\mathrm{const}$ 且无内热源时 $\frac{\partial t}{\partial \tau}=a\nabla^2 t$
+
+$\lambda = \mathrm{const}$ 且稳态时 $\nabla^2 t = -\frac{\dot{\Phi}}{\lambda}$ 称为 Poisson 方程
+
+$\lambda = \mathrm{const}$，稳态，且无内热源时 $\nabla^2 t = 0$ 称为 Laplace 方程
+
+$\lambda = \mathrm{const}$，稳态，一维时 $\frac{\mathrm{d}^2 t}{\mathrm{d}x^2}+\frac{\dot{\Phi}}{\lambda}=0$
+
+$\lambda = \mathrm{const}$，稳态，无内热源且一维时 $\frac{\mathrm{d}^2 t}{\mathrm{d}x^2}=0$
+
+柱坐标系中 $\rho c \frac{\partial t}{\partial \tau} =\frac{1}{r} \frac{\partial}{\partial r}\left(r \lambda \frac{\partial t}{\partial r}\right)+\frac{1}{r^2} \frac{\partial}{\partial \theta}\left(\lambda \frac{\partial t}{\partial \theta}\right)+\frac{\partial}{\partial z}\left(\lambda \frac{\partial t}{\partial z}\right)+\dot{\Phi}$
+
+球坐标系中 $\rho c \frac{\partial t}{\partial \tau}=\frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \lambda \frac{\partial t}{\partial r}\right)+\frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta}\left(\sin \theta \lambda \frac{\partial t}{\partial \theta}\right)+\frac{1}{r^2 \sin^2 \theta} \frac{\partial}{\partial \varphi}\left(\lambda \frac{\partial t}{\partial \varphi}\right)+\dot{\Phi}$
+
+\pt{定解条件}：分为初值条件和边界条件
+
+\pt{初值条件}给定初始时刻的温度分布 $t = f(x,y,z) \quad \text{at} \quad \tau = 0$\\
+\pt{边界条件}有三类
+
+\begin{itemize}
+    \item \pt{第一类边界条件，Dirichlet 条件}边界上的温度分布 $t_w = f(\tau)$
+    \item \pt{第二类边界条件，Neumann 条件}边界上的热流密度分布 $-\lambda \frac{\partial t}{\partial n}\vert _w = f(\tau)=q_w$
+    \item \pt{第三类边界条件，Robin 条件}给定边界上的热流密度与边界温度的关系 $-\lambda \frac{\partial t}{\partial n}\vert _w = h(t_w-t_f)$
+    \item \pt{辐射边界条件} $-\lambda\left.\frac{\partial T}{\partial n}\right|_w=\varepsilon\sigma(T_w^4-T_e^4)$
+    \item \pt{界面连续条件} $\left(\lambda\frac{\partial t}{\partial n}\right)_1=\left(\lambda\frac{\partial t}{\partial n}\right)_2$
+\end{itemize}
+
+Fourier 定律及导热微分方程不适用于以下情形：导热物体温度接近绝对零度时，即温度效应显著；过程作用时间极短，接近材料本身固有时间尺度时，即时间效应显著；过程空间尺度极小，接近微观粒子平均自由程时，即尺度效应显著。上述导热过程称为非傅里叶导热，即 $\mathrm{Non\text{-}Fourier\ heat\ conduction}$。
+
+\divider
+
+%\subsection{典型一维稳态导热问题的分析解}
+
+\pt{单层平壁导热问题分析解}
+
+\pt{稳态无内热源常导热系数第一类边界条件}
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}^2 t}{\mathrm{d}x^2}=0 \\
+         & x=0,t=t_1                              \\
+         & x=\delta,t=t_2
+    \end{aligned}
+    \right.
+$ 解得 $\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}^2 t}{\mathrm{d}x^2}=0 \\
+         & x=0-,t=t_1                             \\
+         & x=\delta,t=t_2
+    \end{aligned}
+    \right.$ $\left\{
+    \begin{aligned}
+         & \text{单位面积热阻} r=\frac{\delta }{\lambda} \text{单位} \mathrm{m^2\cdot K/W} \\
+         & \text{总面积热阻} R=\frac{\delta}{\lambda A} \text{单位} \mathrm{K/W}          \\
+    \end{aligned}
+    \right.$
+
+\pt{稳态无内热源常导热系数第一类边界条件}
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}}{\mathrm{d}x}\left(\lambda \frac{\mathrm{d}t}{\mathrm{d}x}\right)= 0 \\
+         & x=0,t=t_1                                                                             \\
+         & x=\delta,t=t_2                                                                        \\
+         & \lambda = \lambda_0(1+b t)
+    \end{aligned}
+    \right.$ 解得 $\left\{
+    \begin{aligned}
+         & q = \frac{\bar{\lambda}(t_2-t_1)}{\delta}     \\
+         & \Phi = \frac{\bar{\lambda}A(t_2-t_1)}{\delta}
+    \end{aligned}
+    \right.$
+
+\pt{多层平壁导热的分析解}：认为其热阻为各层热阻之和，则对于 $n$ 层平壁 $q = \frac{t_1-t_{n+1}}{\sum_{i=1}^n (\delta_i/\lambda_i)}$
+
+\pt{接触热阻}：两个名义上平整的固体表面相互接触时，实际固体-固体接触只发生在离散接触面上。不贴合部分存在空隙，空气导热系数小，会产生额外热阻，称为接触热阻。接触热阻通常由实验测定。减小接触热阻的方法表面加工得更光滑，保持表面干净，加导热油、碳粉、金属粉、导热硅胶等填充材料。多层导热题若题目说明“忽略接触热阻”，就只串联材料热阻；若考虑接触热阻，应把接触热阻作为额外热阻加入总热阻。
+
+\divider
+
+\pt{通过单层圆筒壁的导热}
+
+\pt{稳态无内热源常导热系数第一类边界条件}
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}}{\mathrm{d}r}\left(r  \frac{\mathrm{d}t}{\mathrm{d}r}\right)=0 \\
+         & r=r_1,t=t_1                                                                     \\
+         & r=r_2,t=t_2
+    \end{aligned}
+    \right.$，解得 $\left\{
+    \begin{aligned}
+         & t = t_1 + \frac{t_2-t_1}{\ln(r_2/r_1)}\ln\left(\frac{r}{r_1}\right)        \\
+         & \Phi=\frac{t_1-t_2}{\frac{1}{2\pi\lambda l}\ln(r_2/r_1)}=\frac{t_1-t_2}{R}
+    \end{aligned}
+    \right.$
+
+多层则依旧看作热阻串联，$\Phi = \frac{t_1-t_{n+1}}{\sum_{i=1}^n (\frac{1}{2\pi\lambda_i l}\ln(r_{i+1}/r_i))}$
+
+\divider
+
+\pt{通过球壳壁的导热}
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}}{\mathrm{d}r}\left(r^2  \frac{\mathrm{d}t}{\mathrm{d}r}\right)=0 \\
+         & r=r_1,t=t_1                                                                       \\
+         & r=r_2,t=t_2
+    \end{aligned}
+    \right.$，解得 $\left\{
+    \begin{aligned}
+         & t = t_1 + \frac{t_2-t_1}{1/r_1-1/r_2}\left(\frac{1}{r}-\frac{1}{r_1}\right)                         \\
+         & \Phi =\frac{4\pi\lambda\left(t_1-t_2\right)}{1/r_1-1/r_2}=\frac{t_1-t_2}{(1/r_1-1/r_2)/4\pi\lambda} \\
+         & R=\frac{1}{4\pi\lambda}(1/r_1-1/r_2)
+    \end{aligned}
+    \right.$
+
+\divider
+
+\pt{第二三类边界条件一维导热问题}
+
+\pt{第二类边界条件}
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}^2 t}{\mathrm{d}x^2}=0                       \\
+         & x=0,t=t_1                                                    \\
+         & x=\delta,-\lambda \frac{\mathrm{d}t}{\mathrm{d}x}\vert = q_w
+    \end{aligned}
+    \right.$，解得 $t = -\frac{q_w}{\lambda}x+t_1$
+
+\pt{第三类边界条件}（壁温 $t_2$ 未知，热流温度 $t_f$ 已知）
+
+$\left\{
+    \begin{aligned}
+         & \frac{\mathrm{d}^2 t}{\mathrm{d}x^2}=0                           \\
+         & x=0, t=t_1                                                       \\
+         & x=\delta , -\lambda \frac{\mathrm{d}t}{\mathrm{d}x} = h(t_2-t_f)
+    \end{aligned}
+    \right.$ 解得 $
+    \begin{aligned}
+        t_2 & =\frac{\lambda t_1+h\delta t_f}{\lambda+h\delta} \\
+        t   & =\frac{h(t_2-t_f)}{\lambda}x+t_1                 \\
+            & =-\frac{h(t_1-t_f)}{\lambda+h\delta}x+t_1
+    \end{aligned}
+$
+
+可以使用热阻思想，将两个表面的对流传热热阻叠加进去，将温差改为两个流体的温差 $q = \frac{t_{f1}-t_{f2}}{\frac{1}{h}+\sum_{i=1}^{n}\frac{\delta_i}{\lambda_i}+\frac{1}{h_2}}$
+
+\divider
+
+%\subsection{非稳态导热的基本概念与数学描述}
+
+\pt{非稳态导热分类}：周期性非稳态导热：物体中各点温度及热流密度随时间周期性变化，例如太阳辐照引起地球温度变化。非周期性非稳态导热：物体温度随时间逐渐趋于恒定值，例如动力机械从启动到稳定运行；本章主要研究这一类。温度变化率范围很宽，可从 $10^{-4},\mathrm{K/s}$ 到 $10^{12},\mathrm{K/s}$；极高速情形下 Fourier 定律可能不再适用。
+
+\pt{非稳态导热特点}：热扰动从界面传到一定距离需要时间。同一时刻，不同截面上的导热量不同，即一般有 $\Phi_1\ne \Phi_2$温度分布有两个阶段：非正规状况阶段：温度分布主要受初始温度分布影响.正规状况阶段：初始温度分布影响逐渐消失，不同时刻温度分布主要取决于边界条件及物性。
+
+导热微分方程统一形式 $\rho c \frac{\partial t}{\partial \tau}=\lambda \operatorname{div}(\operatorname{grad}t)+\dot{\Phi}$ 或者 $\frac{\partial t}{\partial \tau}=\lambda\nabla^2t+\frac{\dot{\Phi}}{\rho c}$ 主要讨论第三类边界条件
+
+毕渥数定义：对厚为 $2\delta$ 的平板，$\mathrm{Bi}=\frac{h\delta}{\lambda}=\frac{\delta/\lambda}{1/h}$。物理意义：$\mathrm{Bi}=\frac{\text{物体内部导热热阻}}{\text{物体表面对流传热热阻}}$。$\delta$ 是平板半厚，属于特征尺度。
+
+$\mathrm{Bi}\to\infty$：表面换热极强，$h\to\infty$，对流热阻趋近 0，表面温度几乎立即降到 $t_\infty$，第 $\MRN{3}$  类边界条件趋向第 $\MRN{1}$  类边界条件。
+$\mathrm{Bi}\to 0$：物体导热系数很大，内部导热热阻趋近 $0$，任意时刻物体内部温度近似均匀；这是集中参数法的基础。
+$0<\mathrm{Bi}<\infty$：对流热阻与导热热阻同量级，情况介于上述两者之间。
+
+像 $\mathrm{Bi}$ 这样表征物理过程特征的无量纲数称为特征数或准则数。学习特征数时要掌握定义、特征尺度取法和物理意义。
+
+\divider
+
+%\subsection{集中参数法}
+
+\pt{集中参数法}基本思想：当 $\mathrm{Bi}\to 0$ 时，物体内部导热热阻远小于表面对流热阻，物体内部任意时刻温度趋于一致。温度只随时间变化，不随空间变化：$t=f(\tau)$。这种零维处理方法称为集中参数法。只要物体内部任意时刻温度基本均匀，无论形状、加热或冷却，都可用集中参数法。
+
+\pt{数学描述}：$\frac{\mathrm{d}t}{\mathrm{d}\tau}=\frac{\Phi}{\rho c}$，能量微分方程化为 $\rho Vc\frac{\mathrm{d}t}{\mathrm{d}\tau}=-Ah(t-t_\infty)$，解得 $\frac{\theta}{\theta_0}=\frac{t-t_\infty}{t_0-t_\infty}=\exp\left(-\frac{hA}{\rho Vc}\tau\right)$，指数项可改写为 $\frac{hA}{\rho Vc}\tau=\frac{h(V/A)}{\lambda}\frac{a\tau}{(V/A)^2}=\mathrm{Bi}_V\mathrm{Fo}_V$ $\mathrm{Bi}_V$ 是以 $l_c=V/A$ 为特征长度的毕渥数。$\mathrm{Fo}_V$ 是以 $l_c=V/A$ 为特征长度的傅里叶数。
+
+\pt{傅里叶数}：定义：$\mathrm{Fo}=\frac{a\tau}{l_c^2}=\frac{\tau}{l_c^2/a}$。物理意义：$\mathrm{Fo}$ 是表征非稳态过程进行深度的无量纲时间。$\mathrm{Fo}$ 越大，热扰动越深入地传播到物体内部，物体内各点温度越接近周围介质温度。
+
+\pt{非稳态导热量}：瞬时热流量：$\Phi(\tau)=-\rho cV\frac{\mathrm{d}t}{\mathrm{d}\tau}=hA(t-t_\infty)$。从 $0$ 到 $\tau$ 的总换热量：$Q_{0-\tau}=\int_0^\tau\Phi(\tau)\mathrm{d}\tau$。也可由内能变化得：$Q_{0-\tau}=\rho Vc(t_0-t)$。写成指数形式：$Q_{0-\tau}=\theta_0\rho Vc\left[1-\exp\left(-\frac{hA}{\rho Vc}\tau\right)\right]$。
+
+\pt{时间常数}：定义：令 $\frac{hA}{\rho Vc}\tau=1$ 的时间为时间常数 $\tau_c$。$\tau_c=\frac{\rho Vc}{hA}$。当 $\tau=\tau_c$ 时，$\frac{\theta}{\theta_0}=e^{-1}=0.368$，过程完成 $63.2\%$。$\tau_c$ 越小，对温度变化响应越快。动态测温中，时间常数越小，越能正确反映被测温度变化。
+
+\pt{集中参数法适用范围}：一般要求 $\mathrm{Bi}=\frac{hl}{\lambda}\le 0.1$，此时物体中各点过余温度差别小于等于 $5\%$。若直接取几何特征长度：厚度 $2\delta$ 平板：$\mathrm{Bi}=\frac{h\delta}{\lambda}\le 0.1$。半径 $R$ 圆柱：$\mathrm{Bi}=\frac{hR}{\lambda}\le 0.1$。半径 $R$ 球：$\mathrm{Bi}=\frac{hR}{\lambda}\le 0.1$。若取 $l_c=V/A$：无限大平板：$l_c=\delta$，$\mathrm{Bi}=\frac{h\delta}{\lambda}\le 0.1$。无限长圆柱：$l_c=0.5R$，$\mathrm{Bi}=\frac{hR}{2\lambda}\le 0.05$。圆球：$l_c=R/3$，$\mathrm{Bi}=\frac{hR}{3\lambda}\le 0.033$。课件强调：零维问题中特征尺度计算很关键，要分析清楚发生导热的体积 $V$ 和换热面积 $A$。
+
+\divider
+
+%\subsection{典型一维非稳态导热问题的分析解}
+
+当非稳态导热问题不满足集中参数法条件，或研究目的本身需要确定物体内部温度差异时不使用集中参数法。
+
+{\centering
+\renewcommand{\arraystretch}{1.85}
+\resizebox{\linewidth}{!}{%
+    \begin{tabular}{c|c|c|c|c|c}
+        \hline
+        \textbf{形状}
+         & \textbf{无量纲温度分析解}
+         & $\boldsymbol{\mu_n}$ \textbf{是下列超越方程的根}
+         & $\boldsymbol{\eta}$
+         & $\boldsymbol{\mathrm{Fo}}$
+         & $\boldsymbol{\mathrm{Bi}}$              \\
+        \hline
+
+        \textbf{平板}
+         &
+        $\begin{aligned}
+                 \frac{\theta(\eta,\tau)}{\theta_0}
+                  & = \sum_{n=1}^{\infty} C_n
+                 \exp(-\mu_n^2 \mathrm{Fo})\cos(\mu_n\eta) \\
+                 C_n
+                  & = \frac{2\sin(\mu_n)}
+                 {\mu_n+\sin(\mu_n)\cos(\mu_n)}
+             \end{aligned}$
+         &
+        $\tan(\mu_n)=\frac{\mathrm{Bi}}{\mu_n},\ n=1,2,\cdots$
+         &
+        $\frac{x}{\delta}$
+         &
+        $\frac{a\tau}{\delta^2}$
+         &
+        $\frac{h\delta}{\lambda}$                  \\
+        \hline
+
+        \textbf{圆柱}
+         &
+        $\begin{aligned}
+                 \frac{\theta(\eta,\tau)}{\theta_0}
+                  & = \sum_{n=1}^{\infty} C_n
+                 \exp(-\mu_n^2 \mathrm{Fo})J_0(\mu_n\eta) \\
+                 C_n
+                  & = \frac{2}{\mu_n}
+                 \frac{J_1(\mu_n)}
+                 {J_0^2(\mu_n)+J_1^2(\mu_n)}
+             \end{aligned}$
+         &
+        $\mu_n\frac{J_1(\mu_n)}{J_0(\mu_n)}=\mathrm{Bi},\ n=1,2,\cdots$
+         &
+        $\frac{r}{R}$
+         &
+        $\frac{a\tau}{R^2}$
+         &
+        $\frac{hR}{\lambda}$                       \\
+        \hline
+
+        \textbf{球}
+         &
+        $\begin{aligned}
+                 \frac{\theta(\eta,\tau)}{\theta_0}
+                  & = \sum_{n=1}^{\infty} C_n
+                 \exp(-\mu_n^2 \mathrm{Fo})
+                 \frac{\sin(\mu_n\eta)}{\mu_n\eta}           \\
+                 C_n
+                  & = \frac{2[\sin(\mu_n)-\mu_n\cos(\mu_n)]}
+                 {\mu_n-\sin(\mu_n)\cos(\mu_n)}
+             \end{aligned}$
+         &
+        $1-\mu_n\cot(\mu_n)=\mathrm{Bi},\ n=1,2,\cdots$
+         &
+        $\frac{r}{R}$
+         &
+        $\frac{a\tau}{R^2}$
+         &
+        $\frac{hR}{\lambda}$                       \\
+        \hline
+    \end{tabular}%
+}
+}
+
+\pt{正规状况阶段}：初始温度分布影响已经消失的阶段。$\mathrm{Fo}>0.2$ 可用分析解的第一级数近似计算。
+
+\pt{一项近似共同形式}：$\frac{\theta(\eta,\tau)}{\theta_0}=A\exp(-\mu_1^2\mathrm{Fo})f(\mu_1\eta)$。平板：$f(\mu_1\eta)=\cos(\mu_1\eta)$。圆柱：$f(\mu_1\eta)=J_0(\mu_1\eta)$。球：$f(\mu_1\eta)=\frac{\sin(\mu_1\eta)}{\mu_1\eta}$。
+
+\pt{一段时间内所传热量的计算式} $\frac{Q}{Q_0}=1-A\exp(-\mu_1^2\mathrm{Fo})B$
+
+详细解为
+
+\par\vspace{0.5pt}
+{\centering
+    \renewcommand{\arraystretch}{2.2}
+    \resizebox{\linewidth}{!}{%
+        \begin{tabular}{c|c|c|c}
+            \hline
+            \textbf{几何形状}
+             & $A$
+             & $B$
+             & $f(\mu_1,\eta)$                  \\
+            \hline
+
+            \textbf{平\ 板}
+             &
+            $2\frac{\sin\mu_1}{\mu_1+\sin\mu_1\cos\mu_1}$
+             &
+            $\frac{\sin\mu_1}{\mu_1}$
+             &
+            $\cos(\mu_1\eta)$                   \\
+            \hline
+
+            \textbf{柱\ 体}
+             &
+            $2\frac{J_1(\mu_1)}
+                {\mu_1\left[J_0^2(\mu_1)+J_1^2(\mu_1)\right]}$
+             &
+            $2\frac{J_1(\mu_1)}{\mu_1}$
+             &
+            $J_0(\mu_1\eta)$                    \\
+            \hline
+
+            \textbf{球\ 体}
+             &
+            $2\frac{\sin\mu_1-\mu_1\cos\mu_1}
+                {\mu_1-\sin\mu_1\cos\mu_1}$
+             &
+            $3\frac{\sin\mu_1-\mu_1\cos\mu_1}{\mu_1^3}$
+             &
+            $\frac{\sin(\mu_1\eta)}{\mu_1\eta}$ \\
+            \hline
+        \end{tabular}%
+    }
+    \par}
+
+\pt{采用近似拟合公式 Compo 法}
+
+$\frac{\theta(x,\tau)}{\theta_0}=A\exp\left(-\mu_1^2Fo\right)f\left(\mu_1\eta\right)$，$\frac{Q}{Q_0}=1-A\exp(-\mu_1^2Fo)B$，$\mu_1^2=(a+\frac{b}{Bi})^{-1}$，$A=a+b(1-e^{-cBi})$，$B=\frac{a+cBi}{1+bBi}$，零阶贝塞尔函数 $J_0=a+bx+cx^2+dx^3$，注意 $J_0$ 中的 $a,b,c,d$ 和其他的不一样
+
+\pt{Heisler-Grober 的 Nomogram 图}已知时间求温度：计算 $\mathrm{Bi}$、$\mathrm{Fo}$ 和 $x/\delta$。从主图查 $\theta_m/\theta_0$，从辅图查 $\theta/\theta_m$，由 $\frac{\theta}{\theta_0}=\frac{t-t_\infty}{t_0-t_\infty}$ 求 $t$。已知温度求时间：计算 $\mathrm{Bi}$、$x/\delta$ 和 $\theta/\theta_0$，从辅图查 $\theta/\theta_m$，得 $\theta_m/\theta_0=(\theta/\theta_0)/(\theta/\theta_m)$，再由主图查 $\mathrm{Fo}$，求 $\tau$。求吸收或放出热量：先计算 $Q_0$、$\mathrm{Bi}$、$\mathrm{Fo}$，从热量图读出 $Q/Q_0$，再求 $Q$。
+
+分析解适用范围拓宽：物体被加热或冷却均可。边界可拓宽到：平板一侧绝热、另一侧第三类边界；或平板两侧均为第一类且温度相同。
+
+$\mathrm{Fo}$、$\mathrm{Bi}$ 影响：物体各点过余温度随时间增加而减小。$\mathrm{Fo}$ 与时间成正比，所以各点过余温度随 $\mathrm{Fo}$ 增加而减小。$\mathrm{Fo}$ 反映非稳态过程进行深度。$\mathrm{Fo}$ 一定时，$\mathrm{Bi}$ 越大，$\theta_m/\theta_0$ 越小，说明表面换热越强，中心温度越快接近周围介质温度。$\mathrm{Bi}\to\infty$ 时，第 III 类边界条件趋于第 I 类边界条件。当 $\mathrm{Bi}\le 0.1$ 时，平板各点 $\theta/\theta_m$ 差别小于约 $5\%$，可用集中参数法。
+
+\divider
