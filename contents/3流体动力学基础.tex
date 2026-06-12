@@ -7,26 +7,26 @@
 \pt{拉格朗日法}:跟踪个别流体质点的运动历程,研究其位移、速度、加速度随时间的变化;综合考察全部流体质点；得到整个流场的运动规律。数学上求解困难,实际较为少用\\
 \pt{欧拉法}:分析流场中每一空间点上的流体质点运动，进而研究整个流体的运动规律。着眼于整个流场状态，也称局部法或流场法。选定空间固定点；研究流体质点经过该点时速度、压强、密度等的变化；把许多空间点在不同时刻的运动情况记录下来；得到流场规律。
 
-\m{
-    \left\{
-    \begin{aligned}
-         & u = u(x,y,z,t)        \\
-         & v=v(x,y,z,t)          \\
-         & w=w(x,y,z,t)          \\
-         & p=p(x,y,z,t)          \\
-         & \rho = \rho (x,y,z,t)
-    \end{aligned}
-    \right.
-    \left\{
-    \begin{aligned}
-         & a_x = \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y}+w \frac{\partial u}{\partial z} \\
-         & a_y = \frac{\partial v}{\partial t}+u \frac{\partial v}{\partial x}+v \frac{\partial v}{\partial y}+w \frac{\partial v}{\partial z}   \\
-         & a_z = \frac{\partial w}{\partial t}+u \frac{\partial w}{\partial x}+v \frac{\partial w}{\partial y}+w \frac{\partial w}{\partial z}
-    \end{aligned}
-    \right.
-}
-
-可写成 \m{\vec{a}= \frac{\mathrm{d}V}{\mathrm{d}t} = \underbrace{\frac{\partial V}{\partial t}}_{\text{当地加速度}}+\underbrace{(\vec{V}\cdot \nabla)\vec{V}}_{\text{迁移加速度}}}
+有 $\vec{V},p,\rho$ 参数，加速度可写成
+%\m{
+%    \left\{
+%    \begin{aligned}
+%         & u = u(x,y,z,t)        \\
+%         & v=v(x,y,z,t)          \\
+%         & w=w(x,y,z,t)          \\
+%         & p=p(x,y,z,t)          \\
+%         & \rho = \rho (x,y,z,t)
+%    \end{aligned}
+%    \right.
+%    \left\{
+%    \begin{aligned}
+%         & a_x = \frac{\partial u}{\partial t}+u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y}+w \frac{\partial u}{\partial z} \\
+%         & a_y = \frac{\partial v}{\partial t}+u \frac{\partial v}{\partial x}+v \frac{\partial v}{\partial y}+w \frac{\partial v}{\partial z}   \\
+%         & a_z = \frac{\partial w}{\partial t}+u \frac{\partial w}{\partial x}+v \frac{\partial w}{\partial y}+w \frac{\partial w}{\partial z}
+%    \end{aligned}
+%    \right.
+%}
+\m{\vec{a}= \frac{\mathrm{d}V}{\mathrm{d}t} = \underbrace{\frac{\partial V}{\partial t}}_{\text{当地加速度}}+\underbrace{(\vec{V}\cdot \nabla)\vec{V}}_{\text{迁移加速度}}}
 
 %\subsection{流体运动的基本概念}
 
