@@ -1,0 +1,46 @@
+\section{第七章 \quad 对流传热的理论基础与计算}
+
+\pt{对流传热定义}：流体流过固体壁面时发生的热量传递过程。特点：必须存在温差。流体与固体表面直接接触。是导热与流体宏观运动共同作用的结果。影响对流传热的因素：流动起因：强制对流、自然对流、混合对流。流动状态：层流、紊流，判据常用 $\mathrm{Re}=\rho ud/\mu$。换热表面几何因素：形状、尺度、相对位置、表面粗糙情况；也区分内流与外流。是否存在相变：沸腾、凝结等。流体物性：$\lambda$、$\rho$、$c_p$、$\mu$、$\gamma$ 等。
+
+%{
+% \centering
+% \includegraphics[width =.8\linewidth]{figures/7对流换热的分类.png}
+%}
+
+\pt{换热分类}：有无相变-流动起因-几何因素-流动状态\\
+\pt{无相变换热}：受迫对流换热（内部流动：圆管、非圆形管；外部流动：外掠平板、外掠单管、外掠管束）；自然对流换热（无限空间：竖壁/竖管、横管、水平壁；有限空间：夹层空间）；混合对流换热。\\
+\pt{相变换热}：凝结换热（垂直壁、水平单圆管及管束外、管内）；沸腾换热（大空间、管内）。
+
+\pt{研究对流传热方法}分析法：采用数学分析求解，有指导意义。实验法：通过大量实验获得 $h$ 的计算式，是目前主要途径。比拟法：利用热量传递与动量传递的共性，建立 $h$ 与阻力系数之间关系，但限制较多。数值法：思想类似导热问题数值求解，发展迅速。
+
+\pt{从温度场计算 $h$}：贴近壁面的薄层流体几乎不流动，热量传递主要靠导热。壁面局部热流密度：$q_{w,x}=-\lambda\left.\frac{\partial t}{\partial y}\right\vert_{y=0,x}$。换热热流密度：$q_{c,x}=h_x(t_{w,x}-t_{\infty})$。$q_{w,x}=q_{c,x}$，$h_x=-\lambda\frac{\left.\partial t/\partial y\right\vert_{y=0,x}}{t_{w,x}-t_{\infty}}$。
+
+与导热第三类边界条件区别：导热问题中 $h$ 已知；这里 $h$ 是待求量。导热问题中 $\lambda$ 是固体导热系数；这里 $\lambda$ 是流体导热系数。导热问题中 $t$ 是固体温度；这里 $t$ 是流体温度。
+
+\divider
+
+%\subsection{对流问题的数学描述}
+
+\pt{对流问题求解思路}流场由连续方程、运动方程描述。温度场由能量方程描述。求得温度场后，再由壁面温度梯度求 $h_x$。
+\pt{简化假设}:二维问题。不可压缩、牛顿流体。常物性、无内热源。流速不高，忽略黏性耗散。不计流体与壁面之间的辐射换热。
+
+
+\pt{能量稳态方程}
+
+$\underbrace{\rho c_p\frac{\partial t}{\partial\tau}}_{\text{非稳态项}}+\underbrace{\rho c_p(u\frac{\partial t}{\partial x}+\nu\frac{\partial t}{\partial y})}_{\text{对流项}}=\underbrace{\lambda(\frac{\partial^2t}{\partial x^2}+\frac{\partial^2t}{\partial y^2})}_{\text{导热项}}$
+
+$u,v$ 分别为 $x,y$ 方向的速度分量
+
+\pt{物理含义}：对流传热温度场来自能量守恒与“导热 + 对流”的热量输运形式。对流传热中的微元体是固定空间内的开口系统，有流体流入与流出。总能量关系可写成 $\Phi=\partial U/\partial \tau+H_{\mathrm{out}}-H_{\mathrm{in}}$。 导热项：单位时间内由导热导入微元体的净热量：$\Phi=\lambda(\partial^2 t/\partial x^2+\partial^2 t/\partial y^2)\mathrm{d}x\mathrm{d}y$。热力学能增量：$\partial U/\partial \tau=\rho c_p(\partial t/\partial \tau)\mathrm{d}x\mathrm{d}y$。焓差项：不可压缩流体下，$H_{\mathrm{out}}-H_{\mathrm{in}}=\rho c_p(u\partial t/\partial x+v\partial t/\partial y)\mathrm{d}x\mathrm{d}y$。
+
+当 $u=v=0$ 时，方程退化为纯导热方程
+
+\pt{控制方程}：能量微分方程、连续性方程、单位质量运动微分方程
+
+$$
+    \left\{
+    \begin{aligned}
+         & \frac{\partial u}{\partial x}+\frac{\partial\nu}{\partial y}=0 \\&\rho(\frac{\partial u}{\partial\tau}+u\frac{\partial u}{\partial x}+\nu\frac{\partial u}{\partial y})=F_{x}-\frac{\partial p}{\partial x}+\mu(\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}})\\&\rho(\frac{\partial\nu}{\partial\tau}+u\frac{\partial\nu}{\partial x}+\nu\frac{\partial\nu}{\partial y})=F_{y}-\frac{\partial p}{\partial y}+\mu(\frac{\partial^{2}\nu}{\partial x^{2}}+\frac{\partial^{2}\nu}{\partial y^{2}})\\&\rho c_{p}\left(\frac{\partial t}{\partial\tau}+u\frac{\partial t}{\partial x}+\nu\frac{\partial t}{\partial y}\right)=\lambda\left(\frac{\partial^{2}t}{\partial x^{2}}+\frac{\partial^{2}t}{\partial y^{2}}\right)\\&h_{x}=-\frac{\lambda}{t_{w,x}-t_{\infty}}\left.\frac{\partial t}{\partial y}\right\vert_{y=0,x}
+    \end{aligned}
+    \right.
+$$
