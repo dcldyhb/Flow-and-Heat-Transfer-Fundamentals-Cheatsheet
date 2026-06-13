@@ -1,0 +1,294 @@
+\section{第八章\quad 辐射传热的理论基础与计算}
+
+%\subsection{热辐射的基本概念}
+
+\pt{热辐射}是由物体内部微观粒子热运动产生、以电磁波形式传递的能量。
+辐射传热是物体间通过相互热辐射与吸收传递热量的过程。
+当系统达到热平衡时，净辐射换热量为零，但相互之间的热辐射仍不断进行。
+\pt{热辐射特点}：
+任何物体只要温度高于 $0,\mathrm{K}$，就会向周围空间发出热辐射；
+不需要介质，可以在真空中传播；
+伴随能量形式转变：发射时热能转为辐射能，吸收时辐射能转为热能；
+具有强烈方向性；
+辐射能与温度、波长均有关。
+
+\pt{辐射传热与导热、对流传热的区别}：
+导热和对流通常依赖介质，辐射传热不需要介质；
+辐射传热涉及热能与辐射能之间的转化；
+发射和吸收不仅与温度、表面状况有关，还取决于波长和方向；
+辐射换热量是物体间相互辐射与吸收的动态平衡结果。（概念区别）
+
+电磁波是交变电磁场在空间中的传播，不同于机械波，不需要弹性介质。
+电磁波传播速度、频率、波长关系为 $c=f\lambda$，真空中 $c=3\times10^8,\mathrm{m}/\mathrm{s}$。
+\pt{典型波段}：
+可见光：$\lambda=0.38\sim0.76,\mu\mathrm{m}$；
+红外线：$\lambda=0.76\sim1000,\mu\mathrm{m}$；
+微波：$\lambda=1,\mathrm{mm}\sim1,\mathrm{m}$。
+%计及太阳辐射，热射线约为 $\lambda=0.1\sim100,\mu\mathrm{m}$。
+%工业领域温度范围小于 $2000,\mathrm{K}$ 时，热射线约为 $\lambda=0.8\sim20,\mu\mathrm{m}$。
+物体对热辐射的吸收、反射、穿透满足 $Q=Q_\alpha+Q_\rho+Q_\tau$，即 $\alpha+\rho+\tau=1$。
+对大多数固体和液体，$\tau=0$，因此 $\alpha+\rho=1$，其辐射特性受表面状况影响大。
+对不含颗粒的气体，$\rho=0$，因此 $\alpha+\tau=1$，其辐射特性受容器形状影响大。
+理想化物体：
+黑体：$\alpha=1$，全部吸收投射辐射。
+镜体或白体：$\rho=1$，全部反射。
+透明体：$\tau=1$，全部穿透。
+反射形式：
+镜面反射：表面粗糙度小于波长。
+漫反射：表面粗糙度大于波长。
+
+\divider
+
+%\subsection{黑体辐射基本定律}
+
+\pt{黑体}是吸收比 $\alpha=1$、能吸收各种波长热辐射能的理想物体
+
+\pt{黑体特点}：
+在相同温度的物体中，黑体辐射能力最大；
+严格意义上的黑体在现实中不存在；
+可用带小孔的温度均匀空腔近似实现。
+
+\pt{黑体模型}：
+小孔孔径越小，吸收比 $\alpha$ 越大。
+空腔温度均匀，是为了保证辐射均匀且各向同性。
+课件例子：内壁吸收比为 $0.6$ 时，若小孔与内壁面积比小于 $0.6\%$，模型吸收比可大于 $0.996$，近似黑体。
+
+黑体辐射三大定律\pt{回答三个问题}：
+单位面积黑体在一定温度下发射的总能量是多少。
+总能量在各波段中的分配是多少。
+辐射能在空间方向上如何分布。
+
+\pt{三大定律}：斯忒潘-玻耳兹曼定律、普朗克定律、兰贝特定律。
+
+\pt{斯忒潘-玻耳兹曼定律}
+辐射力 $E$ 指单位时间内，物体单位表面积向半球空间发射的所有波长能量总和，单位为 $\mathrm{W}/\mathrm{m}^2$，也称半球辐射力。
+黑体辐射力为 $E_b=\sigma T^4$，也可写为 $E_b=C_0(T/100)^4$。
+黑体辐射常数 $\sigma=5.67\times10^{-8},\mathrm{W}/(\mathrm{m}^2\cdot\mathrm{K}^4)$。
+黑体辐射系数 $C_0=5.67,\mathrm{W}/(\mathrm{m}^2\cdot\mathrm{K}^4)$。
+该定律说明黑体辐射力 $E_b$ 与热力学温度 $T$ 的四次方成正比，因此又称辐射四次方定律。
+
+\pt{普朗克定律}
+
+光谱辐射力 $E_\lambda$ 指单位时间内、单位波长范围内，物体单位表面积向半球空间发射的能量，单位为 $\mathrm{W}/\mathrm{m}^3$。
+黑体光谱辐射力 $E_{b\lambda}=\frac{c_1\lambda^{-5}}{e^{c_2/(\lambda T)}-1}$ 揭示 $E_{b\lambda}$ 随 $\lambda$ 和 $T$ 的变化规律，即 $E_{b\lambda}=f(\lambda,T)$。
+
+\pt{维恩位移定律}
+
+最大光谱辐射力对应波长 $\lambda_m$ 与温度关系为 $\lambda_m T=2.8976\times10^{-3}\,\mathrm{m}\cdot\mathrm{K}$
+
+太阳近似为 $5800,\mathrm{K}$ 黑体，最大辐射落在可见光区域。
+钨丝灯约 $2900,\mathrm{K}$，虽发白光，但多数能量仍在红外区域，所以发光效率较低。
+钢锭升温时颜色由红变白，是因为峰值波长随温度升高向短波移动。
+
+\pt{普朗克定律与总辐射力关系}
+
+总辐射力是光谱辐射力曲线下面积，$E=\int_0^\infty E_\lambda\,\mathrm{d}\lambda$。对黑体，$E_b=\int_0^\infty E_{b\lambda},\mathrm{d}\lambda=\sigma T^4$
+特定波段黑体辐射力为 $E_b(\lambda_1\sim\lambda_2)=\int_{\lambda_1}^{\lambda_2}E_{b\lambda}\,\mathrm{d}\lambda$
+黑体辐射函数：
+$F_b(0\sim\lambda)=\int_0^\lambda E_{b\lambda}\,\mathrm{d}\lambda/(\sigma T^4)=f(\lambda T)$。\\
+$F_b(\lambda_1\sim\lambda_2)=F_b(0\sim\lambda_2)-F_b(0\sim\lambda_1)=f(\lambda_2T)-f(\lambda_1T)$
+
+查黑体辐射函数表时要注意单位；可见光和红外线能量份额由 $\lambda T$ 决定。
+
+\pt{兰贝特定律}
+
+\pt{立体角}定义为球面面积除以球半径平方，$\Omega=A_c/r^2$，单位为 $\mathrm{sr}$。
+半球空间立体角为 $\Omega=2\pi\,\mathrm{sr}$。
+微元立体角为 $\mathrm{d}\Omega=\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi$。
+单位实际辐射面积为 $\mathrm{d}A$，单位可见辐射面积为 $\mathrm{d}A\cos\theta$。
+\pt{定向辐射强度}定义为单位时间、单位可见辐射面积、单位立体角内的辐射能量，$I(\theta)=\mathrm{d}\Phi(\theta)/(\mathrm{d}A\cos\theta,\mathrm{d}\Omega)$，单位为 $\mathrm{W}/(\mathrm{m}^2\cdot\mathrm{sr})$。
+\pt{兰贝特定律}指定向辐射强度与方向无关，黑体满足 $I_b(\theta)=I_b=C$。
+注意：黑体满足兰贝特定律，但满足兰贝特定律的物体不一定是黑体，也可能是漫射体。
+黑体定向辐射力满足 $\mathrm{d}\Phi(\theta)/(\mathrm{d}A,\mathrm{d}\Omega)=I_b\cos\theta$，所以兰贝特定律也称余弦定律。
+黑体辐射能的空间分布按定向辐射力看是不均匀的，法向最大，切向最小。
+对服从兰贝特定律的辐射，\pt{半球辐射力}与定向辐射强度关系为 $E_b=\pi I_b$。
+
+\divider
+
+%\subsection{实际固体和液体的辐射特性}
+实际物体辐射能力小于同温度黑体，因此引入发射率，也称黑度，记为 $\varepsilon$。发射率定义为实际物体辐射力与同温度黑体辐射力之比，$\varepsilon=E/E_b<1$；黑体 $\varepsilon=1$
+发射率一般通过实验测定，只取决于物体本身，与外界无关。
+实际物体辐射力计算为 $E=\varepsilon E_b=\varepsilon\sigma T^4$。
+光谱发射率定义为实际物体光谱辐射力与同温度黑体光谱辐射力之比，$\varepsilon(\lambda)=E_\lambda/E_{b\lambda}$。
+总发射率与光谱发射率关系为 $\varepsilon=E/E_b=\int_0^\infty \varepsilon(\lambda)E_{b\lambda},\mathrm{d}\lambda/(\sigma T^4)$。
+实际物体光谱辐射力为 $E_\lambda=\varepsilon(\lambda)E_{b\lambda}$，且 $E_\lambda<E_{b\lambda}$。
+实际物体辐射力并不严格遵从四次方定律，工程上可近似认为 $E\propto T^4$，由此产生的修正归入实验确定的 $\varepsilon$ 中，所以 $\varepsilon$ 还与物体本身温度有关。
+定向发射率定义为实际物体定向辐射强度与同温度黑体定向辐射强度之比，$\varepsilon(\theta)=I(\theta)/I_b(\theta)=I(\theta)/I_b$。
+漫射体：定向辐射强度 $I$ 随方向 $\theta$ 的分布满足兰贝特定律，即 $I(\theta)=\mathrm{const}$，且 $\varepsilon(\theta)<1$。
+漫射表面：符合兰贝特定律的表面。
+\pt{定向发射率变化规律}
+金属导体：$0^\circ\sim30^\circ$ 内 $\varepsilon(\theta)$ 近似常数，随后随 $\theta$ 增大而增大，接近 $90^\circ$ 时急剧减小；
+非金属：$0^\circ\sim60^\circ$ 内 $\varepsilon(\theta)$ 近似常数，之后随 $\theta$ 增大而急剧减小。
+
+\pt{半球平均发射率}与定向发射率关系为 $\varepsilon=\frac{E}{E_b}=\frac{\int_{\Omega=2\pi}\varepsilon(\theta)\cos\theta\,\mathrm{d}\Omega}{\pi}$。
+半球大部分范围内 $\varepsilon(\theta)$ 近似常数，因此可用法向发射率 $\varepsilon_n$ 代替，$\varepsilon=M\varepsilon_n$；除高度磨光表面外，$M\approx1$，所以 $\varepsilon\approx\varepsilon_n$。
+
+\pt{影响 $\varepsilon$、$\varepsilon(\lambda)$、$\varepsilon(\theta)$ 的因素}：
+物体种类；
+物体表面温度；
+表面状况，如是否氧化、光滑程度。
+对同一金属材料，高度磨光表面发射率低，粗糙表面或氧化表面发射率高；
+非金属材料表面发射率较高。
+\pt{实际物体}辐射特性的注意点：
+将不确定因素归入修正系数，是因为热辐射过程复杂，难以完全理论确定；
+实际物体定向辐射强度不完全符合兰贝特定律，但工程上常近似认为多数工程材料服从兰贝特定律，即把实际表面近似为漫射表面。
+发射率只与发射辐射的物体本身有关，不涉及外界条件。
+
+\divider
+
+%\subsection{实际物体对辐射能的吸收与辐射关系}
+
+投入辐射 $G$：单位时间内从外界投射到单位表面积上的总辐射能。
+吸收比 $\alpha$：物体吸收的投入辐射占投入辐射总量的比例，$\alpha=\text{吸收的能量}/\text{投入的能量}$
+光谱吸收比 $\alpha(\lambda)$：物体对某一特定波长辐射能的吸收百分数，也称单色吸收比。
+选择性吸收：实际物体对不同波长辐射能的吸收能力不同；因此 $\alpha$ 不仅取决于物体自身，还取决于投入辐射的光谱分布。
+若表面 $1$ 接收表面 $2$ 的投入辐射，则 $\alpha_1=\frac{\int_0^\infty \alpha(\lambda,T_1)\varepsilon(\lambda,T_2)E_{b\lambda}(T_2)\,\mathrm{d}\lambda}{\int_0^\infty \varepsilon(\lambda,T_2)E_{b\lambda}(T_2)\,\mathrm{d}\lambda}$。
+若投入辐射源为黑体，则 $\alpha_1=\frac{\int_0^\infty \alpha(\lambda,T_1)\varepsilon(\lambda,T_2)E_{b\lambda}(T_2)\,\mathrm{d}\lambda}{\sigma {T_2}^4}$。\\
+\pt{灰体}：光谱吸收比与波长无关的物体，即 $\alpha(\lambda)=\mathrm{const}$；此时吸收比只与自身有关，与外界投入辐射的光谱分布无关。
+灰体吸收比可写为 $\alpha_1=\frac{\int_0^\infty \alpha(\lambda,T_1)E_{b\lambda}(T_2)\,\mathrm{d}\lambda}{\sigma T_2^4}=\alpha(\lambda)=\mathrm{const}$。
+\pt{工程意义}：在 $300\sim2000\,\mathrm{K}$ 温度范围内，许多工程材料的光谱能量主要在红外区，光谱吸收比随波长变化不大，所以灰体假设常可接受。
+漫射表面假设用于忽略发射辐射能的空间分布特性；灰体假设用于忽略选择性吸收特性。
+漫射表面近似：$\varepsilon=\varepsilon_n$；灰体表面近似：$\alpha=\alpha(\lambda)=\mathrm{const}$。
+
+\pt{基尔霍夫定律}：板 1 为黑体，板 2 为任意实际物体；板 2 的辐射力为 $E$，吸收比为 $\alpha$，黑体投入辐射为 $E_b$。
+两板间辐射换热热流密度：$q=E-\alpha E_b$。
+热平衡时 $q=0$，因此 $\alpha=E/E_b=\varepsilon$。
+基尔霍夫定律内涵：在热平衡时，任意物体对黑体投入辐射的吸收比等于同温度下该物体的发射率。
+对漫灰表面，可推广为 $\alpha(T)\equiv\varepsilon(T)$。
+
+\pt{太阳与环境辐射}
+
+研究太阳辐射吸收时，物体表面一般不能视为灰体，即 $\alpha\ne\varepsilon$，因为许多物体对可见光短波辐射有强选择性吸收
+太阳辐射特点：到达大气层外缘的太阳辐射近似 $5762\ \mathrm{K}$ 黑体辐射。
+太阳常数：$S_c=1370\pm6\ \mathrm{W/m^2}$；太阳总辐射能约 $1.76\times10^{17}\ \mathrm{W}$。
+太阳光谱：约 $99\%$ 辐射能集中在 $0.2\sim2.5\ \mu\mathrm{m}$，最大光谱辐射力波长约 $0.48\ \mu\mathrm{m}$。
+大气层气体的吸收和散射会削弱太阳辐射。
+太阳能利用包括光伏发电、太阳能热力发电、太阳能集热器、太阳灶、温室、太阳能空调/制冷/干燥、海水淡化、建筑一体化、光合作用与制氢等。
+环境辐射：地球以及大气层中具有辐射能力物体的辐射。
+地球表面辐射：$E_e=\varepsilon\sigma T_e^4$，课件取 $\varepsilon=1$，$T_e=250\sim320\ \mathrm{K}$；平均 $290\ \mathrm{K}$ 时，峰值波长约 $10\ \mu\mathrm{m}$，以红外线为主。
+大气层对地表的投入辐射：$G_{\mathrm{atm}}=\sigma T_{\mathrm{sky}}^4$。
+等效天空温度 $T_{\mathrm{sky}}$：寒冷晴空约 $230\ \mathrm{K}$，暖和雾天约 $285\ \mathrm{K}$。
+霜冻解释：冬夜晴朗时即使空气温度 $T_a>0^\circ\mathrm{C}$，地面对冷天空辐射散热强，可能使地表 $T_e<273\ \mathrm{K}$；课件给出平衡形式 $h(T_a-T_e)=\sigma(T_e^4-T_{\mathrm{sky}}^4)$。
+
+\divider
+
+%\subsection{气体辐射}
+
+气体辐射特点 1：不同气体的辐射和吸收能力不同；单原子气体如 $\mathrm{Ar}$、$\mathrm{He}$，以及空气、$\mathrm{O_2}$、$\mathrm{N_2}$、$\mathrm{H_2}$ 等结构对称双原子气体通常无明显辐射/吸收能力。
+多原子气体和结构不对称双原子气体有相当辐射能力。
+气体辐射特点 2：对波长有强烈选择性，每种气体只在特定波长范围内辐射和吸收，称为光带。
+$\mathrm{CO_2}$ 光带：$2.65\sim2.80\ \mu\mathrm{m}$、$4.15\sim4.45\ \mu\mathrm{m}$、$13.0\sim17.0\ \mu\mathrm{m}$。
+$\mathrm{H_2O}$ 光带：$2.55\sim2.84\ \mu\mathrm{m}$、$5.60\sim7.60\ \mu\mathrm{m}$、$12.0\sim30.0\ \mu\mathrm{m}$。
+气体辐射特点 3：气体的辐射和吸收在整个容积中进行，而不是只在表面进行。
+因此研究气体发射率和吸收比时，必须说明气体容积的形状和大小。
+\pt{贝尔定律}：气体层中光谱辐射强度沿射线程长指数衰减，$\mathrm{d}I_{\lambda,x}/I_{\lambda,x}=-K_\lambda\,\mathrm{d}x$。
+当气体温度、压力为常数时，$K_\lambda$ 为常数，积分得 $I_{\lambda,s}=I_{\lambda,0}e^{-K_\lambda s}$。
+光谱穿透比：$\tau(\lambda,s)=L_{\lambda,s}/L_{\lambda,0}=e^{-k_\lambda s}$。
+气体光谱反射比：$\rho(\lambda,s)=0$。
+气体光谱发射率：$\varepsilon(\lambda,s)=1-e^{-k_\lambda s}$。
+气体容积辐射计算：先确定气体发射率 $\varepsilon_g$，再用 $\Phi=\varepsilon_g A\sigma T_g^4$ 或 $E_g=\varepsilon_g\sigma T_g^4$ 估算辐射能。
+平均射线程长：用“当量半球”表征容器形状和尺寸对气体辐射的影响；当量半球半径称为对指定壁面点的平均射线程长。
+$\mathrm{H_2O}$、$\mathrm{CO_2}$ 发射率：$\varepsilon_g=f(T_g,ps)$，与气体温度、分压力和射线程长有关。
+组合气体发射率：$\varepsilon_g=C_{\mathrm{H_2O}}\varepsilon_{\mathrm{H_2O}}^*+C_{\mathrm{CO_2}}\varepsilon_{\mathrm{CO_2}}^*-\Delta\varepsilon$。
+由于气体辐射选择性强，不能视为灰体，故 $\alpha_g\ne\varepsilon_g$。
+组合气体吸收比：$\alpha_g=C_{\mathrm{H_2O}}\alpha_{\mathrm{H_2O}}^*+C_{\mathrm{CO_2}}\alpha_{\mathrm{CO_2}}^*-\Delta\alpha$。
+
+\divider
+
+%\subsection{辐射传热的角系数}
+
+\pt{辐射传热的角系数}
+
+两表面辐射换热量与相对位置、朝向、遮挡关系密切。 角系数 $X_{1,2}$：表面 1 发出的辐射能直接落到表面 2 上的百分数，$X_{1,2}=\frac{\text{离开表面 1 并直接到达表面 2 的辐射能}}{\text{离开表面 1 的总辐射能}}$。
+两黑体表面间辐射换热量：$\Phi_{1,2}=A_1E_{b1}X_{1,2}-A_2E_{b2}X_{2,1}$。
+角系数假定：研究表面为漫射体；表面辐射热流均匀，即温度、发射率、反射比等均匀。
+角系数属性：纯几何因子，与表面温度和发射率无关；温度和发射率只影响离开表面的辐射能绝对大小。
+相对性：对有限表面，当 $T_1=T_2$ 时 $\Phi_{1,2}=0$，故 $A_1X_{1,2}=A_2X_{2,1}$。
+微元面相对性：$\mathrm{d}A_1X_{d1,d2}=\mathrm{d}A_2X_{d2,d1}$。
+完整性：由 $N$ 个表面组成的封闭腔中，$\sum_{i=1}^n X_{1,i}=1$。
+对非凹表面，如凸面或平面，$X_{1,1}=0$；对凹表面，$X_{1,1}\ne0$。
+可加性：若表面 2 由 $2A$、$2B$ 组成，且子区域不重叠，则 $X_{1,2}=X_{1,2A}+X_{1,2B}$。
+注意可加性直接相加只适用于角系数符号的第二角码；反向时需面积加权，$X_{2,1}=\frac{A_{2A}}{A_2}X_{2A,1}+\frac{A_{2B}}{A_2}X_{2B,1}$，一般 $X_{2,1}\ne X_{2A,1}+X_{2B,1}$。
+角系数计算方法 1：直接积分法，$X_{d1,d2}=\frac{\mathrm{d}A_2\cos\theta_1\cos\theta_2}{\pi r^2}$，$X_{1,2}=\frac{1}{A_1}\frac{\int_{A_1}\int_{A_2}\cos\theta_1\cos\theta_2}{\pi r^2}\,\mathrm{d}A_2\,\mathrm{d}A_1$。
+角系数计算方法 2：代数分析法，利用相对性、完整性、可加性建立方程组。
+三个非凹表面组成、垂直纸面方向无限长的封闭系统中，可用 $X_{1,2}\frac{l_1+l_2-l_3}{2l_1}$。
+交叉线法：$X_{ab,cd}=\frac{(bc+ad)-(ac+bd)}{2ab}$，适用于两个非凹表面及假想面组成的二维长封闭系统。
+角系数计算方法 3：图线法，查图时需注意坐标，课件特别提示对数坐标。
+
+\divider
+
+%\subsection{封闭系统的辐射传热}
+
+透热介质：不参与热辐射的介质，如空气；辐射传热中，物体表面可被真空或透热介质隔开。
+封闭腔模型：计算任一表面与外界辐射换热时，必须计及该表面向各方向发射的辐射能，以及各方向投射到该表面的辐射能。
+封闭腔表面可以全是真实表面，也可以包含假想表面；适用于黑体和漫灰表面间的辐射换热计算。
+两块无限接近的平行平板是最简单的封闭腔模型。
+两黑体表面组成的封闭腔：$\Phi_{1,2}=A_1E_{b1}X_{1,2}-A_2E_{b2}X_{2,1}=A_1X_{1,2}(E_{b1}-E_{b2})$。
+黑体辐射力：$E_b=\sigma T^4$，其中 $\sigma=5.67\times10^{-8}\ \mathrm{W}/(\mathrm{m}^2\cdot\mathrm{K}^4)$。
+黑体辐射换热可写成热阻形式：$\Phi_{1,2}=\frac{E_{b1}-E_{b2}}{1/(A_1X_{1,2})}$，其中 $1/(A_1X_{1,2})$ 是空间辐射热阻。
+有效辐射 $J$：单位时间离开单位表面积的总辐射能，包括自身辐射和反射辐射。
+对表面 $1$：$J_1=E_1+\rho_1G_1=\varepsilon_1E_{b1}+(1-\alpha_1)G_1$。
+净辐射热流密度以向外为正：$q_1=J_1-G_1$，也可写作 $q_1=\varepsilon_1E_{b1}-\alpha_1G_1$。
+对漫灰表面，利用 $\alpha_1=\varepsilon_1$ 可得：$J_1=E_{b1}-(\frac{1}{\varepsilon_1}-1)q_1$。
+两漫灰表面一般公式：$\Phi_{1,2}=\frac{E_{b1}-E_{b2}}{(1-\varepsilon_1)/(\varepsilon_1A_1)+1/(A_1X_{1,2})+(1-\varepsilon_2)/(\varepsilon_2A_2)}$。
+两漫灰面等效网络包含三个热阻：表面 $1$ 热阻 $(1-\varepsilon_1)/(\varepsilon_1A_1)$，空间热阻 $1/(A_1X_{1,2})$，表面 $2$ 热阻 $(1-\varepsilon_2)/(\varepsilon_2A_2)$。
+与黑体相比，漫灰表面多出两个表面辐射热阻，所以在相同温差下换热量更小。
+系统发射率 $\varepsilon_s$：$\Phi_{1,2}=\varepsilon_sA_1X_{1,2}(E_{b1}-E_{b2})$。
+系统发射率公式：$\varepsilon_s=\frac{1}{1+X_{1,2}(\frac{1}{\varepsilon_1}-1)+X_{2,1}(\frac{1}{\varepsilon_2}-1)}$，且通常 $\varepsilon_s<1$。
+简化 1：若表面 $1$ 为非凹面，$X_{1,1}=0$，$X_{1,2}=1$，则 $\varepsilon_s=\frac{1}{\frac{1}{\varepsilon_1}+\frac{A_1}{A_2}(\frac{1}{\varepsilon_2}-1)}$。
+简化 2：两无限接近平行板，$X_{1,2}=1$ 且 $A_1\approx A_2$，则 $\varepsilon_s=\frac{1}{\frac{1}{\varepsilon_1}+\frac{1}{\varepsilon_2}-1}$。
+简化 3：小物体在大包围表面内，$X_{1,2}=1$ 且 $A_1\ll A_2$，则 $\varepsilon_s\approx\varepsilon_1$。
+液氧双镀银夹层例题：无限大平行表面，$t_{w1}=20^\circ\mathrm{C}$，$t_{w2}=-183^\circ\mathrm{C}$，$\varepsilon_1=\varepsilon_2=0.02$。
+该例热流密度：$q=\frac{E_{b1}-E_{b2}}{\frac{1}{\varepsilon_1}+\frac{1}{\varepsilon_2}-1}=4.18\ \mathrm{W}/\mathrm{m}^2$。
+若表面不是镀银而取 $\varepsilon_1=\varepsilon_2=0.8$，则 $q=276\ \mathrm{W}/\mathrm{m}^2$，说明低发射率表面对减少辐射漏热非常有效。
+若用导热系数 $\lambda=0.05\ \mathrm{W}/(\mathrm{m}\cdot\mathrm{K})$ 的保温材料替代，要达到 $4.18\ \mathrm{W}/\mathrm{m}^2$，需 $\delta=\lambda\Delta t/q=2.43\ \mathrm{m}$，厚度很大。
+
+\divider
+
+%\subsection{辐射传热的控制}
+
+控制辐射传热，本质上是改变等效热阻：表面辐射热阻和空间辐射热阻。
+控制表面辐射热阻：$R_{\mathrm{s}}=(1-\varepsilon)/(\varepsilon A)$。
+改变面积 $A$ 可影响热阻，但工程中面积通常受结构限制；更常用的是改变表面发射率 $\varepsilon$。
+发射率越低，表面辐射热阻越大，辐射换热越弱；发射率越高，越利于辐射散热。
+面积相差很大时，应优先改变对总热阻影响最大的表面。课件例：$A_1=1$，$A_2=10$，若 $\varepsilon_1=\varepsilon_2=0.5$，总等效热阻约为 $2.1$；把大面改为 $\varepsilon_2=0.8$ 后约为 $2.025$；把小面改为 $\varepsilon_1=0.8$ 后约为 $1.35$，说明小面积面更敏感。
+太阳能吸热材料要求：在 $0.2\sim3\ \mu\mathrm{m}$ 太阳辐射波段吸收比 $\alpha$ 尽量大，自身发射率 $\varepsilon$ 尽量小，即 $\alpha/\varepsilon$ 尽量大。
+变压器油漆选择：从散热角度要高 $\varepsilon$；从减少太阳辐射吸收角度要低 $\alpha$，因此希望 $\alpha/\varepsilon$ 尽量小。
+控制空间辐射热阻：$R_{\mathrm{sp}}=1/(A_iX_{i,j})$。
+改变空间辐射热阻可通过改变面积 $A_i$ 或角系数 $X_{i,j}$；工程中常通过布置位置、遮挡、改变可见关系来减小 $X_{i,j}$。
+电子机箱例：温度敏感元件应尽量布置在冷风入口处，并避免与大功率元件形成强辐射耦合。
+遮热板：插在两个辐射传热表面之间、用于阻挡或减弱辐射传热的薄板。
+遮热板本身不放出或带走系统热量，只是在热流路径中增加热阻，从而减小辐射传热。
+无遮热板的无限大平行表面：$q_{1,2}=\frac{E_{b1}-E_{b2}}{\frac{1}{\varepsilon_1}+\frac{1}{\varepsilon_2}-1}$。
+插入一块无限大薄金属遮热板后：$q'_{1,2}=\frac{E_{b1}-E_{b2}}{\frac{1}{\varepsilon_1}+\frac{1}{\varepsilon_2}+\frac{1}{\varepsilon_{31}}+\frac{1}{\varepsilon_{32}}-2}$。
+若 $\varepsilon_1=\varepsilon_{31}=\varepsilon_{32}=\varepsilon_2=\varepsilon$，则 $q'_{1,2}=\frac{1}{2}q_{1,2}$。
+增加 $n$ 层黑度相同的遮热板：$q'_{1,2}=\frac{1}{n+1}q_{1,2}$。
+增加一层遮热板，相当于增加两个表面辐射热阻和一个空间辐射热阻；遮热板黑度越小、层数越多，遮热效果越明显。
+遮热板应用：汽轮机内外套管间减少辐射换热；液态气体低温容器；超级隔热油管；提高温度测量准确度，如遮热罩抽气式热电偶。
+
+\divider
+
+%\subsection{综合传热分析}
+
+ 复合传热问题中，导热、对流、辐射常常同时存在，不能只看单一传热方式。
+槽式太阳能集热器例：太阳辐射照到抛物反射镜，被聚焦到集热管；集热管吸收太阳能后加热内部传热流体。
+槽式集热器传热过程包括：太阳辐射的反射与吸收、吸热管壁导热、管内对流换热、环形真空空间内的辐射和少量导热、玻璃管壁导热、玻璃管外壁对流和辐射散热。
+选择性涂层的目标仍是太阳波段高 $\alpha$、自身红外发射低 $\varepsilon$，即提高有效吸热、减少热损失。
+平板太阳能集热器例：有效吸热热流密度为 $q_{\mathrm{cl}}=\tau G_s\alpha_s-q_{r,p}-q_{c,p}$。
+集热器效率：$\eta=q_{\mathrm{cl}}/G_s$。
+自然对流计算的定性温度：$t_m=(t_{\mathrm{tr}}+t_p)/2=(50+90)/2=70^\circ\mathrm{C}$。
+空气物性：$\lambda=2.96\times10^{-2}\ \mathrm{W}/(\mathrm{m}\cdot\mathrm{K})$，$\nu=20.02\times10^{-6}\ \mathrm{m}^2/\mathrm{s}$，$\mathrm{Pr}=0.694$。
+特征数计算：$\mathrm{Gr}=\frac{g\beta\Delta t\delta^3}{\nu^2}=182491$，$\mathrm{Nu}=0.212(\mathrm{Gr}\mathrm{Pr})^{1/4}=4.0$。
+对流换热系数：$h=\mathrm{Nu}\lambda/\delta=2.96\ \mathrm{W}/(\mathrm{m}^2\cdot\mathrm{K})$。
+对流损失：$q_{c,p}=h\Delta t=2.96\times40=118\ \mathrm{W}/\mathrm{m}^2$。
+辐射损失：$q_{r,p}=\frac{\sigma(T_p^4-T_{\mathrm{tr}}^4)}{\frac{1}{\varepsilon_p}+\frac{1}{\varepsilon_{\mathrm{tr}}}-1}=81.7\ \mathrm{W}/\mathrm{m}^2$。
+有效热流密度：$q_{\mathrm{cl}}=0.90\times750\times0.93-118-81.7=428.1\ \mathrm{W}/\mathrm{m}^2$。
+集热器效率：$\eta=428.1/750=57.1\%$。
+固体导热系数测定例：试件顶面受炉壁辐射加热，底面被冷却水强烈冷却，侧边绝热，稳态时辐射输入等于一维导热输出。
+辐射输入：$q=\varepsilon_s\sigma(T_w^4-T_s^4)$。
+平壁导热输出：$q=\bar{\lambda}(T_s-T_c)/\delta$。
+平均导热系数：$\bar{\lambda}=\frac{\delta\varepsilon_s\sigma(T_w^4-T_s^4)}{T_s-T_c}$。
+代入 $T_w=1400\ \mathrm{K}$，$T_s=1000\ \mathrm{K}$，$T_c=300\ \mathrm{K}$，$\varepsilon_s=0.85$，$\delta=0.015\ \mathrm{m}$，得 $\bar{\lambda}\approx2.93\ \mathrm{W}/(\mathrm{m}\cdot\mathrm{K})$。
+复合换热：对流与辐射同时存在时，可把辐射换热按牛顿冷却公式折合为辐射表面传热系数。
+辐射表面传热系数：$h_r=\Phi_r/[A(t_w-t_f)]$。
+复合表面传热系数：$h_t=h_r+h_c=(\Phi_r+\Phi_c)/[A(t_w-t_f)]$。
